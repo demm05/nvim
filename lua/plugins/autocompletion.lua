@@ -95,7 +95,7 @@ return {
 					end
 				end, { "i", "s" }),
 				-- Select next/previous item with Tab / Shift + Tab
-				["<Tab>"] = cmp.mapping(function(fallback)
+				--[[	["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item()
 					elseif luasnip.expand_or_locally_jumpable() then
@@ -112,7 +112,8 @@ return {
 					else
 						fallback()
 					end
-				end, { "i", "s" }),
+				end, { "i", "s" }),]]
+				--
 			}),
 			sources = {
 				{ name = "nvim_lsp" },

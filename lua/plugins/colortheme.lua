@@ -1,28 +1,58 @@
 return {
-	'shaunsingh/nord.nvim',
-	lazy = false,
+	"catppuccin/nvim",
+	name = "catppuccin",
 	priority = 1000,
 	config = function()
-		vim.g.nord_contrast = true                   -- Make sidebars and popup menus like nvim-tree and telescope have a different background
-		vim.g.nord_borders = false                   -- Enable the border between verticaly split windows visable
-		vim.g.nord_disable_background = true         -- Disable the setting of background color so that NeoVim can use your terminal background
-		vim.g.set_cursorline_transparent = false     -- Set the cursorline transparent/visible
-		vim.g.nord_italic = false                    -- enables/disables italics
-		vim.g.nord_enable_sidebar_background = false -- Re-enables the background of the sidebar if you disabled the background of everything
-		vim.g.nord_uniform_diff_background = true    -- enables/disables colorful backgrounds when used in diff mode
-		vim.g.nord_bold = false                      -- enables/disables bold
-		require('nord').set()
-	
-		local bg_transparent = false 
+		require("catppuccin").setup({
+			flavour = "frappe", -- latte, frappe, macchiato, mocha
+			background = { -- :h background
+				light = "latte",
+				dark = "mocha",
+			},
+			transparent_background = true, -- disables setting the background color.
+			show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+			term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+			dim_inactive = {
+				enabled = false, -- dims the background color of inactive window
+				shade = "dark",
+				percentage = 0.15, -- percentage of the shade to apply to the inactive window
+			},
+			no_italic = false, -- Force no italic
+			no_bold = false, -- Force no bold
+			no_underline = false, -- Force no underline
+			styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+				comments = { "italic" }, -- Change the style of comments
+				conditionals = { "italic" },
+				loops = {},
+				functions = {},
+				keywords = {},
+				strings = {},
+				variables = {},
+				numbers = {},
+				booleans = {},
+				properties = {},
+				types = {},
+				operators = {},
+				-- miscs = {}, -- Uncomment to turn off hard-coded styles
+			},
+			color_overrides = {},
+			custom_highlights = {},
+			default_integrations = true,
+			integrations = {
+				cmp = true,
+				gitsigns = true,
+				nvimtree = true,
+				treesitter = true,
+				notify = false,
+				mini = {
+					enabled = true,
+					indentscope_color = "",
+				},
+				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+			},
+		})
 
-		-- Toggle background transparency
-		local toggle_transparency = function()
-			bg_transparent = not bg_transparent
-			vim.g.nord_disable_background = bg_transparent
-			vim.cmd [[colorscheme nord]]
-			-- set_menu_border_transparency()
-		end
-
-		vim.keymap.set('n', '<leader>bg', toggle_transparency, { noremap = true, silent = true })
-	end
+		-- setup must be called before loading
+		vim.cmd.colorscheme("catppuccin")
+	end,
 }
