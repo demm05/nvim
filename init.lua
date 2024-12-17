@@ -25,4 +25,5 @@ require("lazy").setup({
 	require("plugins.alpha"),
 	require("plugins.indent-blanklike"),
 	require("plugins.misc"),
+	require("plugins.42school"),
 })

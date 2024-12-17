@@ -9,10 +9,6 @@ return {
 		"windwp/nvim-ts-autotag",
 	},
 	{
-		-- detect tabstop and shiftwidth automatically
-		"tpope/vim-sleuth",
-	},
-	{
 		-- Powerful Git integration for Vim
 		"tpope/vim-fugitive",
 	},
