@@ -9,5 +9,7 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.colorscheme.rose-pine" },
+  -- { import = "astrocommunity.media.vim-wakatime" },
   -- import/override with your plugins folder
 }

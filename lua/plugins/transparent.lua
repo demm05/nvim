@@ -8,6 +8,7 @@ return {
       'TabLine',
       'TabLineFill',
       'WinBarNC',
+      'WinBar',
     },
     exclude_groups = {},
   },
