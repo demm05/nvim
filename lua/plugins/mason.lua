@@ -13,6 +13,7 @@ return {
 			ensure_installed = {
 				-- install language servers
 				"lua-language-server",
+				"lua_ls",
 
 				-- install formatters
 				"stylua",
@@ -23,6 +24,8 @@ return {
 				-- install any other package
 				"tree-sitter-cli",
 				"clangd",
+				-- "docker-compose-language-service",
+				"docker-language-server",
 			},
 		},
 	},

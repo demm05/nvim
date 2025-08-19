@@ -12,6 +12,8 @@ return {
 			"c",
 			"cpp",
 			"python",
+			"yaml",
+			"dockerfile",
 			-- add more arguments for adding more treesitter parsers
 		},
 	},
