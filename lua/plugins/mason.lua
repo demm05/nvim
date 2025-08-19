@@ -13,7 +13,6 @@ return {
 			ensure_installed = {
 				-- install language servers
 				"lua-language-server",
-				"lua_ls",
 
 				-- install formatters
 				"stylua",
