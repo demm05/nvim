@@ -6,10 +6,11 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.color.transparent-nvim" },
-  { import = "astrocommunity.colorscheme.rose-pine" },
-  -- { import = "astrocommunity.media.vim-wakatime" },
-  -- import/override with your plugins folder
+	"AstroNvim/astrocommunity",
+	{ import = "astrocommunity.pack.lua" },
+	{ import = "astrocommunity.color.transparent-nvim" },
+	{ import = "astrocommunity.colorscheme.rose-pine" },
+	{ import = "astrocommunity.file-explorer.mini-files" },
+	{ import = "astrocommunity.fuzzy-finder.snacks-picker" },
+	{ import = "astrocommunity.media.vim-wakatime" },
 }

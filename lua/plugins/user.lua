@@ -10,7 +10,6 @@ return {
   -- == Examples of Adding Plugins ==
 
   "andweeb/presence.nvim",
-  "wakatime/vim-wakatime",
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
