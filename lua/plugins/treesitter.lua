@@ -4,17 +4,17 @@
 
 ---@type LazySpec
 return {
-	"nvim-treesitter/nvim-treesitter",
-	opts = {
-		ensure_installed = {
-			"lua",
-			"vim",
-			"c",
-			"cpp",
-			"python",
-			"yaml",
-			"dockerfile",
-			-- add more arguments for adding more treesitter parsers
-		},
-	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+        ensure_installed = {
+            "lua",
+            "vim",
+            "c",
+            "cpp",
+            "python",
+            "yaml",
+            "dockerfile",
+            -- add more arguments for adding more treesitter parsers
+        },
+    },
 }

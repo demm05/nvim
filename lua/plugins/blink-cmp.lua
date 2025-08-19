@@ -1,8 +1,8 @@
 return {
-	"saghen/blink.cmp",
-	opts = {
-		keymap = {
-			["<Tab>"] = {},
-		},
-	},
+    "saghen/blink.cmp",
+    opts = {
+        keymap = {
+            ["<Tab>"] = {},
+        },
+    },
 }
