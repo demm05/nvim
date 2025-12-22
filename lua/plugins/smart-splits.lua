@@ -1,10 +1,11 @@
 -- if true then return {} end
+-- stylua: ignore
 return {
   "mrjones2014/smart-splits.nvim",
   lazy = false,
   opts = {
-    ignored_filetypes = { "nofile", "quickfix", "qf", "prompt" },
-    ignored_buftypes = { "nofile" },
+    ignored_filetypes = { "quickfix", "qf", "prompt" },
+    ignored_buftypes = {},
   },
   keys = {
     { "<C-h>", function() require("smart-splits").move_cursor_left() end, desc = "Move to left split" },

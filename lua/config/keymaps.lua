@@ -37,7 +37,6 @@ map("n", "<leader>wv", "<C-W>v", { desc = "Split Window Vertically", remap = tru
 map("n", "<leader>ww", "<C-W>p", { desc = "Other Window", remap = true })
 map("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Split Vertically" })
 map("n", "<leader>-", "<cmd>split<cr>", { desc = "Split Horizontally" })
--- map("n", "<leader>o", "<cmd>only<cr>", { desc = "Focus One Window" })
 map("n", "<leader>w+", "<C-W>+", { desc = "Increase Height" })
 map("n", "<leader>w-", "<C-W>-", { desc = "Decrease Height" })
 map("n", "<leader>w<", "<C-W><", { desc = "Decrease Width" })
