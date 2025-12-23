@@ -16,7 +16,18 @@ return {
     servers = {
       clangd = {},
       rust_analyzer = {},
-      pyright = {},
+      basedpyright = {
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "basic", -- "basic" or "strict"
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "openFilesOnly",
+            },
+          },
+        },
+      },
       ts_ls = {}, -- New name for tsserver
       bashls = {},
       dockerls = {},

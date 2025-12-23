@@ -6,12 +6,15 @@ return {
     ensure_installed = {
       "clangd",
       "rust-analyzer",
-      "pyright",
+      "basedpyright",
       "typescript-language-server",
       "bash-language-server",
       "dockerfile-language-server",
       "lua-language-server",
       "stylua",
+      -- Debuggers
+      "debugpy",
+      "cpptools",
     },
   },
   config = function(_, opts)
