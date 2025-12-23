@@ -18,7 +18,9 @@ return {
     scope        = { enabled = true },
     scroll       = { enabled = false },
     statuscolumn = { enabled = true },
+    terminal     = { enabled = true },
     toggle       = { enabled = true },
+
     words        = { enabled = true },
     picker = {
       enabled = true,
@@ -65,8 +67,6 @@ return {
     { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
     { "<leader>fR", function() Snacks.picker.recent({ filter = { cwd = true } }) end, desc = "Recent (cwd)" },
-    { "<leader>ft", function() Snacks.terminal() end, desc = "Terminal (Root Dir)" },
-    { "<leader>fT", function() Snacks.terminal(nil, { cwd = vim.fn.getcwd() }) end, desc = "Terminal (cwd)" },
 
     -- Git
     { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
@@ -101,6 +101,8 @@ return {
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "<leader>ur", function() Snacks.toggle.relativenumber():toggle() end, desc = "Toggle Relative Number" },
     { "<leader>uu", function() Snacks.picker.undo() end, desc = "Undo History (Snacks)" },
+    { "<leader>ut", function() Snacks.terminal.toggle() end, desc = "Terminal (Root Dir)" },
+    { "<leader>uT", function() Snacks.terminal.toggle(nil, { cwd = vim.fn.getcwd() }) end, desc = "Terminal (cwd)" },
     { "<leader>uw", function() Snacks.toggle.option("wrap"):toggle() end, desc = "Toggle Wrap" },
     { "<leader>uz", function() Snacks.zen() end, desc = "Enable Zen Mode" },
     {

@@ -3,6 +3,8 @@ local map = vim.keymap.set
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+map("t", "<esc><esc>", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
+map("t", "jk", "<C-\\><C-n>", { desc = "Enter Normal Mode" })
 
 -- Better indenting
 map("v", "<", "<gv")

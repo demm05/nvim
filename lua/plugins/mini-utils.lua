@@ -10,7 +10,14 @@ return {
 		"echasnovski/mini.comment",
 		event = "VeryLazy",
 		opts = {},
+		keys = {
+			{ "<C-/>", "gcc", mode = "n", remap = true, desc = "Toggle Comment" },
+			{ "<C-/>", "gc", mode = "v", remap = true, desc = "Toggle Comment" },
+			{ "<C-_>", "gcc", mode = "n", remap = true, desc = "Toggle Comment" },
+			{ "<C-_>", "gc", mode = "v", remap = true, desc = "Toggle Comment" },
+		},
 	},
+
 	-- Statusline
 	{
 		"echasnovski/mini.statusline",
