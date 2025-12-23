@@ -34,12 +34,12 @@ return {
 				if theme then
 					local ok = pcall(vim.cmd, "colorscheme " .. theme)
 					if not ok then
-						vim.cmd("colorscheme catppuccin-mocha")
+						vim.cmd("colorscheme oasis-abyss")
 					end
 				end
 			else
 				-- Default
-				vim.cmd("colorscheme catppuccin-mocha")
+				vim.cmd("colorscheme oasis-abyss")
 			end
 
 			-- Save theme
