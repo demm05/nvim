@@ -15,6 +15,7 @@ return {
     },
     servers = {
       clangd = {},
+      neocmake = {},
       rust_analyzer = {},
       basedpyright = {
         settings = {
@@ -28,6 +29,7 @@ return {
           },
         },
       },
+      ruff = {},
       ts_ls = {}, -- New name for tsserver
       bashls = {},
       dockerls = {},

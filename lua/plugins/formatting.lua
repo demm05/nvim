@@ -5,12 +5,13 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "isort", "black" },
+      python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
       rust = { "rustfmt" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       typescript = { "prettierd", "prettier", stop_after_first = true },
       c = { "clang-format" },
       cpp = { "clang-format" },
+      cmake = { "cmake_format" },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable

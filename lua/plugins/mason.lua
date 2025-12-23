@@ -14,7 +14,11 @@ return {
       "stylua",
       -- Debuggers
       "debugpy",
-      "cpptools",
+      "codelldb",
+      -- CMake & Tools
+      "neocmakelsp",
+      "ruff",
+      "cmakelang",
     },
   },
   config = function(_, opts)
