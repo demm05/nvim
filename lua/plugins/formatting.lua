@@ -12,6 +12,8 @@ return {
       c = { "clang-format" },
       cpp = { "clang-format" },
       cmake = { "cmake_format" },
+      yaml = { "prettierd", "prettier", stop_after_first = true },
+      dockerfile = { "prettierd", "prettier", stop_after_first = true },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable

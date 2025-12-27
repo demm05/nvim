@@ -74,6 +74,7 @@ return {
     { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (hunks)" },
     { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Current File History" },
     { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+    { "<leader>gD", function() Snacks.terminal("lazydocker") end, desc = "Lazydocker" },
     { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
     { "<leader>gL", function() Snacks.picker.git_log({ cwd = vim.fn.getcwd() }) end, desc = "Git Log (cwd)" },
     { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
@@ -87,6 +88,7 @@ return {
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
     { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>sm", function() Snacks.picker.marks() end, desc = "Marks" },
+    { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
     { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
     { "<leader>sp", function() Snacks.picker.projects() end, desc = "Recent Projects" },
 

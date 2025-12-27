@@ -41,20 +41,6 @@ return {
 				-- Default
 				vim.cmd("colorscheme oasis-abyss")
 			end
-
-			-- Save theme
-			vim.api.nvim_create_autocmd("ColorScheme", {
-				callback = function()
-					local theme = vim.g.colors_name
-					if theme then
-						local f = io.open(theme_file, "w")
-						if f then
-							f:write(theme)
-							f:close()
-						end
-					end
-				end,
-			})
 		end,
 	},
 }

@@ -63,3 +63,27 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		local theme = vim.g.colors_name
+		if not theme then
+			return
+		end
+
+		-- 1. Save to your existing persistence file
+		local theme_file = vim.fn.stdpath("data") .. "/last_theme.txt"
+		local f = io.open(theme_file, "w")
+		if f then
+			f:write(theme)
+			f:close()
+		end
+
+		local ghostty_conf_path = vim.fn.expand("~/.config/ghostty/current-theme")
+		local g_file = io.open(ghostty_conf_path, "w")
+		if g_file then
+			g_file:write("theme = " .. theme)
+			g_file:close()
+		end
+	end,
+})

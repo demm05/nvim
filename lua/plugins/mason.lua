@@ -19,6 +19,9 @@ return {
       "neocmakelsp",
       "ruff",
       "cmakelang",
+      "yaml-language-server",
+      "hadolint",
+      "yamllint",
     },
   },
   config = function(_, opts)

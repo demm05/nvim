@@ -33,6 +33,17 @@ return {
       ts_ls = {}, -- New name for tsserver
       bashls = {},
       dockerls = {},
+      yamlls = {
+        settings = {
+          yaml = {
+            schemas = {
+              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose*.{yml,yaml}",
+              ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+              ["https://json.schemastore.org/github-action.json"] = "/.github/action.{yml,yaml}",
+            },
+          },
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
