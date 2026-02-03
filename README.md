@@ -1,74 +1,64 @@
-# 🌌 demm05's Neovim Configuration
+# demm05/nvim
 
-A high-performance, category-driven Neovim configuration optimized for C++, Python, and Rust, built for Neovim 0.11+.
+A performance-oriented Neovim configuration for C++, Rust, and Python development. Optimized for Neovim 0.11+ and built around a discovery-first keymap architecture.
 
-## 🚀 Key Features
+## Core Environment
+- **Completion**: `blink.cmp` for low-latency snippets and LSP suggestions.
+- **UI Framework**: `snacks.nvim` for pickers, notifications, and dashboard.
+- **Package Management**: `lazy.nvim` with `mason` for automated tool installation.
+- **Assistant**: Integrated AI coding support via `opencode.nvim`.
 
-- **⚡ Blazing Fast**: Powered by `blink.cmp` for near-instant completion and `lazy.nvim` for optimized plugin loading.
-- **🎨 Premium UI**: Rich aesthetics using `snacks.nvim` for dashboards, pickers, and smooth notifications.
-- **📐 Categorized Keymaps**: Mnemonic, standardized keybindings that make the configuration highly discoverable.
-- **🤖 AI Integrated**: Native support for `OpenCode.nvim` for advanced AI-assisted coding.
-- **🦀 First-Class Language Support**:
-  - **C/C++**: Optimized `clangd` with background indexing and header/source switching.
-  - **Rust**: `rust-analyzer` with automatic Clippy lints and proc-macro support.
-  - **Python**: Robust type checking with `basedpyright` and fast linting via `ruff`.
-- **📟 Terminal Pro**: Enhanced terminal buffers with auto-insert and immediate closure support.
-
----
-
-## ⌨️ Standardized Keymap Categories
-
-This configuration uses a category-based leader system. Press `<leader>` to see the full menu via `which-key`.
+## Keymap Strategy (Leader)
+Mapped prefixes are categorized by function to ensure discoverability via `which-key`.
 
 | Prefix | Category | Actions |
 | :--- | :--- | :--- |
-| **`<leader>l`** | **LSP / Code** | Definition, References, Rename, Format, Diagnostics |
-| **`<leader>f`** | **File / Find** | Find Files, Recent Files, Snacks Explorer |
-| **`<leader>s`** | **Search** | Grep, Project-wide Search/Replace, TODOs |
-| **`<leader>u`** | **UI / Toggle** | Zen Mode, Toggles (Hints, Diagnostics, Terminal) |
-| **`<leader>g`** | **Git** | Lazygit, Blame, Status, Branch history |
-| **`<leader>b`** | **Buffer** | Switching, Deleting, Pinning |
-| **`<leader>a`** | **AI** | Ask, AI Actions, Toggle AI Chat |
-| **`<leader>e`** | **Explorer** | Fast access to `mini.files` |
-| **`<leader>o`** | **Zoom** | Toggle window focus/zoom |
+| `l` | LSP/Code | Definition, References, Rename, Format, Diagnostics (`le`), Logs (`ll`) |
+| `f` | Files | Find (`ff`), Recent (`fr`), Config (`fc`), Snacks Explorer (`fe`) |
+| `s` | Search | Grep (`sg`), Global Replace (`sr`), Todo Search (`st`) |
+| `u` | UI/Toggle | Zen Mode (`uz`), Inlay Hints (`uh`), Terminal (`ut`), Line Numbers |
+| `g` | Git | Lazygit (`gg`), Blame (`gb`), Status (`gs`), Log (`gl`) |
+| `b` | Buffers | Navigation (`S-h`/`S-l`), Deleting (`bd`/`bo`), Pinning |
+| `a` | AI | Ask (`aa`), Actions (`ax`), Toggle Chat (`at`), AI Operator (`ao`) |
+| `o` | Zoom | Toggle current window focus (Zoom) |
+| `e` | Explorer | Direct access to `mini.files` |
 
----
+## Language-Specific Implementation
 
-## 🛠 Prerequisites
+### C/C++ (clangd)
+- Persistent background indexing enabled.
+- Automatic symbol extraction from non-standard system headers via `--query-driver`.
+- Functional placeholders for argument completion.
+- `<leader>ch` to instantly switch between `.cpp` and `.h` files.
 
-Ensure you have the following installed on your system:
+### Rust (rust-analyzer)
+- Automatic `clippy` linting on save.
+- Comprehensive proc-macro and cargo feature analysis.
 
+### Python (basedpyright & ruff)
+- Fast linting and formatting via `ruff`.
+- `basedpyright` configured for optimized diagnostic noise.
+
+### Terminal
+- Automatic insert mode upon entry.
+- Mapped `:q` to exit terminal buffers immediately.
+- Excluded from buffer lists to keep navigation clean.
+
+## System Dependencies
 - **Neovim 0.11.0+**
-- **Git**
-- **A Nerd Font** (e.g., JetBrainsMono Nerd Font)
-- **Node.js & Python** (for some LSPs)
-- **Compilers**: `clang`, `gcc`, or `rustc` depending on your work.
+- **Nerd Font**: Required for icons (e.g., JetBrainsMono).
+- **Tools**: `git`, `curl`, `ripgrep`, `fd`, `fzf`.
+- **Compilers**: `clang` (C/C++), `rustc`/`cargo` (Rust), `python3`/`pip` (Python).
 
-## 📦 Installation
+## Installation
 
-1. **Clone the repository:**
+1. **Clone**:
    ```bash
    git clone git@github.com:demm05/nvim.git ~/.config/nvim
    ```
+2. **Sync**:
+   Open Neovim and run `:Lazy sync`.
+3. **LSP Management**: 
+   All language servers, debuggers, and linters are managed via **Mason**. Run `:Mason` to install or update tools (e.g., `clangd`, `rust-analyzer`, `basedpyright`).
 
-2. **Open Neovim:**
-   ```bash
-   nvim
-   ```
-   *Lazy.nvim will automatically begin installing all plugins.*
-
-3. **Install LSPs & Tools:**
-   Press `:Mason` inside Neovim to manage, install, and update your language servers and debuggers.
-
----
-
-## 🔧 Project Specifics: `compile_commands.json`
-For the best C++ experience, ensure your project has a `compile_commands.json` in the root. If your build system (like CMake) puts it in a `build/` folder, link it to the root:
-```bash
-ln -s build/compile_commands.json .
-```
-
----
-
-## 🤝 Acknowledgements
-Built on the shoulders of giants: `LazyVim` inspiration, `folke`'s amazing plugins, and the Neovim community.
+*Note: For C++ projects, ensure a `compile_commands.json` exists in the project root.*
