@@ -29,7 +29,7 @@ Mapped prefixes are categorized by function to ensure discoverability via `which
 - Persistent background indexing enabled.
 - Automatic symbol extraction from non-standard system headers via `--query-driver`.
 - Functional placeholders for argument completion.
-- `<leader>ch` to instantly switch between `.cpp` and `.h` files.
+- `<leader>lh` to instantly switch between `.cpp` and `.h` files.
 
 ### Rust (rust-analyzer)
 - Automatic `clippy` linting on save.

@@ -16,7 +16,24 @@ return {
     servers = {
       clangd = {
         keys = {
-          { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+          {
+            "<leader>lh",
+            function()
+              local params = { uri = vim.uri_from_bufnr(0) }
+              vim.lsp.buf_request(0, "textDocument/switchSourceHeader", params, function(err, result)
+                if err then
+                  vim.notify("Error switching source/header: " .. tostring(err), vim.log.levels.ERROR)
+                  return
+                end
+                if not result then
+                  vim.notify("Corresponding source/header not found", vim.log.levels.WARN)
+                  return
+                end
+                vim.api.nvim_command("edit " .. vim.uri_to_fname(result))
+              end)
+            end,
+            desc = "Switch Source/Header (C/C++)",
+          },
         },
         root_dir = function(fname)
           return vim.fs.root(fname, { "compile_commands.json", "compile_flags.txt", ".git" })
