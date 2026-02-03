@@ -49,3 +49,12 @@ map("n", "<leader>w=", "<C-W>=", { desc = "Equally High and Wide" })
 -- Diagnostic keymaps
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+map("n", "<leader>le", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+
+-- Quick search and replace
+map("n", "<leader>sx", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Search and Replace Word Under Cursor" })
+
+-- Formatting (also available in lsp logic, but generic here)
+map({ "n", "v" }, "<leader>lf", function()
+  require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
+end, { desc = "Format (Injected/All)" })

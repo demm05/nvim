@@ -7,7 +7,13 @@ return {
   opts = {
     animate      = { enabled = false },
     bigfile      = { enabled = true },
-    dashboard    = { enabled = true },
+    dashboard = {
+      sections = {
+        { section = "header" },
+        { section = "keys", gap = 1, padding = 1 },
+        { section = "startup" },
+      },
+    },
     explorer     = { enabled = true, replace_netrw = true },
     indent       = { enabled = true },
     input        = { enabled = true },
@@ -24,6 +30,7 @@ return {
     words        = { enabled = true },
     picker = {
       enabled = true,
+      ui_select = true, -- replace vim.ui.select
       sources = {
         explorer = {
           win = {
@@ -36,19 +43,28 @@ return {
           },
         },
       },
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+            ["<C-j>"] = { "history_back", mode = { "i", "n" } },
+            ["<C-k>"] = { "history_forward", mode = { "i", "n" } },
+          },
+        },
+      },
     },
   },
   keys = {
-    -- Top level
+    -- Top level / Fast access
+    { "<leader><space>", function() Snacks.picker.files() end, desc = "Find Files (Root Dir)" },
     { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep (Root Dir)" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-    { "<leader><space>", function() Snacks.picker.files() end, desc = "Find Files (Root Dir)" },
-    { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-    { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
-    { "<leader>E", function() Snacks.explorer() end, desc = "Explorer Snacks" },
-    { "<leader>o", function() Snacks.zen.zoom() end, desc = "Toggle Focus Window" },
+
+    -- Notes / Scratch
+    { "<leader>ns", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+    { "<leader>nS", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
 
     -- Buffer
     { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Switch to Other Buffer" },
@@ -62,6 +78,7 @@ return {
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>fB", function() Snacks.picker.buffers({ all = true }) end, desc = "Buffers (all)" },
     { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+    { "<leader>fe", function() Snacks.explorer() end, desc = "Explorer Snacks" },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files (Root Dir)" },
     { "<leader>fF", function() Snacks.picker.files({ cwd = vim.fn.getcwd() }) end, desc = "Find Files (cwd)" },
     { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
@@ -100,13 +117,15 @@ return {
     { "<leader>ug", function() Snacks.toggle.indent():toggle() end, desc = "Toggle Indent Guides" },
     { "<leader>uh", function() Snacks.toggle.inlay_hints():toggle() end, desc = "Toggle Inlay Hints" },
     { "<leader>ul", function() Snacks.toggle.line_number():toggle() end, desc = "Toggle Line Numbers" },
-    { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "<leader>ur", function() Snacks.toggle.relativenumber():toggle() end, desc = "Toggle Relative Number" },
     { "<leader>uu", function() Snacks.picker.undo() end, desc = "Undo History (Snacks)" },
     { "<leader>ut", function() Snacks.terminal.toggle() end, desc = "Terminal (Root Dir)" },
     { "<leader>uT", function() Snacks.terminal.toggle(nil, { cwd = vim.fn.getcwd() }) end, desc = "Terminal (cwd)" },
     { "<leader>uw", function() Snacks.toggle.option("wrap"):toggle() end, desc = "Toggle Wrap" },
     { "<leader>uz", function() Snacks.zen() end, desc = "Enable Zen Mode" },
+    { "<leader>o", function() Snacks.zen.zoom() end, desc = "Toggle Focus Window" },
+    { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+    { "<leader>uN", function() Snacks.notifier.show_history() end, desc = "Notification History" },
     {
       "<leader>uf",
       function()

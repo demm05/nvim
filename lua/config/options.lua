@@ -3,6 +3,7 @@
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
+opt.autoread = true -- Automatically read changed files
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions

@@ -7,7 +7,14 @@ return {
 			function()
 				require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
 			end,
-			desc = "Open mini.files (directory of current file)",
+			desc = "Explorer Mini (directory of current file)",
+		},
+		{
+			"<leader>fE",
+			function()
+				require("mini.files").open(vim.uv.cwd(), true)
+			end,
+			desc = "Explorer Mini (cwd)",
 		},
 	},
 	opts = {
